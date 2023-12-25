@@ -12,7 +12,7 @@ export async function POST(request:NextRequest) {
         const {email, password} = reqBody;
 
         //? Checking if user exits or not
-        const user = await User.find({email});
+        const user:any = await User.findOne({email});
         if(!user){
             return NextResponse.json({error: 'User does not exits'}, {status:400})
         }
